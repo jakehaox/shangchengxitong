@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-09 19:29:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-14 17:32:46
-*/
 
 import React,{ Component } from 'react'
 import {
@@ -33,7 +27,7 @@ class NormalLoginForm extends Component {
 			<Form className="login-form">
 			<Form.Item>
 			  {getFieldDecorator('username', {
-			    rules: [{ required: true, message: '请输入用户名!' }],
+			    rules: [{ required: true, message: '请输入用户名!' },{pattern:/^[a-z0-9]{3,6}$/,message:'用户名3到6位字母下划线或数字'}],
 			  })(
 			    <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
 			  )}
