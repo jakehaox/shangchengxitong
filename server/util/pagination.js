@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2018-08-09 10:22:53
 * @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-17 11:08:02
+* @Last Modified time: 2019-04-28 11:16:04
 */
 
 
@@ -33,7 +33,7 @@ let pagination = (options)=>{
 		}
 
 		//每页显示条数
-		let limit = 10;
+		let limit = 2;
 
 		/*
 		分页:
@@ -51,7 +51,6 @@ let pagination = (options)=>{
 
 		options.model.countDocuments(options.query)
 		.then((count)=>{
-			console.log(count)
 			let pages = Math.ceil(count / limit);
 			if(page > pages){
 				page = pages;
@@ -69,6 +68,7 @@ let pagination = (options)=>{
 					query = query.populate(options.populate[i])
 				}
 			}
+
 			query
 			.sort(options.sort)
 			.skip(skip)

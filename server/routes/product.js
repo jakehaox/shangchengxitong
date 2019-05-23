@@ -2,7 +2,7 @@
 * @Author: Tom
 * @Date:   2018-08-06 09:23:30
 * @Last Modified by:   TomChen
-* @Last Modified time: 2018-09-17 16:33:28
+* @Last Modified time: 2019-04-22 10:18:25
 */
 const Router = require('express').Router;
 const ProductModel = require('../models/product.js');
@@ -237,9 +237,9 @@ router.put("/updateStatus",(req,res)=>{
 						total:result.total,
 						pageSize:result.pageSize,
 						list:result.list					
-				}
-			})	
-		})							
+					}
+				})	
+			})								
 		}else{
 			res.json({
 				code:1,

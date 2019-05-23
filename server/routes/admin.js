@@ -31,11 +31,10 @@ router.get("/init",(req,res)=>{
 	})
 });
 */
-
 /*
 router.get("/init",(req,res)=>{
 	const users = [];
-	for(let i = 0;i<100;i++){
+	for(let i = 0;i<500;i++){
 		users.push({
 			username:'test'+i,
 			password:hmac('test'+i),

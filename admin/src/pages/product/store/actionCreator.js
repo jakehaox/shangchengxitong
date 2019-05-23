@@ -6,7 +6,8 @@ import {
 	GET_PRODUCTS,
 	UPDATE_PRODUCT_ORDER,
 	UPDATE_PRODUCT_STATUS,
-	GET_PRODUCT_DETAIL 
+	GET_PRODUCT_DETAIL,
+	SEARCH_PRODUCTS, 
 } from 'api'
 
 export const getSetCategoryIdAction = (pid,id)=>{
@@ -202,4 +203,23 @@ export const getProductDetailAction = (productId)=>{
 			}
 		})
 	}	
+}
+
+export const getSearchAction = (keyword,page)=>{
+	return (dispatch)=>{
+		request({
+			url:SEARCH_PRODUCTS,
+			data:{
+				keyword:keyword,
+				page:page
+			}
+		})
+		.then(result=>{
+			if(result.code == 0){
+				dispatch(setPageAction(result.data))
+			}else if(result.code == 1){
+				message.error(result.message)
+			}
+		})
+	}
 }
